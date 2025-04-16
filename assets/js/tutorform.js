@@ -247,7 +247,7 @@ function handleFormSubmission(e) {
                 }
             };
             
-            xhr.open("POST", "https://www.omdayalhometuition.com/api/tutors/submit");
+            xhr.open("POST", "https://omdayalhometuition.com/api/tutors/submit");
             xhr.send(formData);
             
         } catch (error) {
