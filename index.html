@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./assets/images/favicon.ico">
+  <link rel="icon" href="./assets/images/favicon.ico" sizes="192x192">
+<link rel="icon" href="./assets/images/favicon.ico" sizes="512x512">
+  <title>OM DAYAL HOME TUTIONS PVT. LTD</title>
+
+  <!-- --------------------------fixed social-link--------------------- -->
+  
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/tutorform.css">
+  <link rel="stylesheet" href="./assets/css/media_queries.css">
+  <link rel="stylesheet" href="./assets/css/animation.css">
+  <link rel="stylesheet" href="./assets/css/pop.css">
+  <link rel="stylesheet" href="./assets/css/news.css">
+  <link rel="stylesheet" href="./assets/css/enquirey.css">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+  <script src="https://kit.fontawesome.com/fafa56e3c9.js" crossorigin="anonymous"></script>
+
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"> -->
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700;800;900&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body onload=set_time()>
+
+  <!--
+    - main container
+  -->
+
+  <div class="container">
+
+    <!-- <link rel="import" href="location selector/location selector.html"> -->
+
+    <!--
+      - #HEADER
+    -->
+
+    <!-- ----------------pop-up screen------------------ -->
+    <div class="pop-up screen" id="regs">
+      <form >
+        <!-- <i class='fa fa-close'></i> -->
+        <i class='fa fa-close' id="close-btn"></i>
+        <!-- <ion-icon class="cc" name="close-circle"></ion-icon> -->
+      </form>
+    </div>
+
+
+    <!-- ---------------header------------- -->
+    <header>
+      <!-- <div class="loc">
+        <div class="spic">
+          <ion-icon class="iloc" name="mail"></ion-icon>
+          <p><a href="mailto:omdayalhometuition@gmail.com">omdayalhometuition@gmail.com</a></p>
+        </div>
+        <div class="ssic">
+          <ion-icon name="call" class="iloc"></ion-icon>
+          <p><a href="tel:+91 869192942"> +91 869192942</a></p>
+          <p><a href="tel:+91 9572645103">+91 9572645103</a></p>
+        </div>
+      </div> -->
+
+      <nav class="navbar">
+
+        <div class="navbar-brand">
+          <img src="./assets/images/withoutbackground_logo.png" alt="Educator Logo">
+        </div>
+
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#about">About Us</a>
+          </li>
+
+        <li class="nav-item">
+          <a href="#services">Services</a>  
+        </li>
+          
+          <li class="nav-item">
+            <a href="https://wa.me/+91869192942">Contact Us</a>
+          </li>
+
+        </ul>
+
+        <div class="btn-group">
+          <button id="regs" class="btn btn-primary">
+            <span class="btn-text">
+              <b>STUDENT</b>
+              <img src="./assets/images/user-login.svg" alt="User Icon" class="btn-icon" />
+            </span>
+            <span class="square"></span>
+          </button>
+        
+          <button id="openTutorPopup" class="popup-trigger btn btn-primary">
+            <span class="btn-text">
+              <b>TUTOR</b>
+              <img src="./assets/images/user-login.svg" alt="User Icon" class="btn-icon" />
+            </span>
+            <span class="square"></span>
+          </button>
+        </div>
+        
+        <button class="nav-toggle-btn">
+          <span class="one"></span>
+          <span class="two"></span>
+          <span class="three"></span>
+        </button>
+
+      </nav>
+
+    </header>
+
+    <!-- --------------------submit form------------------------- -->
+    <div class="enquire">
+      <ion-icon class="cross" name="close"></ion-icon>
+      <div class="form-header">
+        <h1>PLEASE SHARE YOUR REQUIREMENTS AND QUERY</h1>
+        <p class="rem">"Shape Your Child's Future with the Right Tutor at Home."</p>
+      </div>
+      <form class="fsum">
+        <div class="fleft">
+          <label for="">First Name<span class="red-color">*</span></label>
+          <input class="input" type="name" placeholder="Enter Your First Name">
+        </div>
+        <div class="fleft1">
+          <label for="">Last Name<span class="red-color">*</span></label>
+          <input type="name" class="input" placeholder="Enter Your Last Name">
+        </div>
+        <div class="fleft">
+          <label for="">Enter Your Contact<span class="red-color">*</span></label>
+          <input type="number" class="input" placeholder="Enter Your Contact">
+        </div>
+        <div class="fleft">
+          <label for="">Email</label>
+          <input type="email" class="input" placeholder="Enter Your Email">
+        </div>
+        <div class="fleft">
+          <label for="">Locality<span class="red-color">*</span></label>
+          <input type="text" class="input" placeholder="Enter Your Locality" required>
+        </div>
+        <div class="fleft">
+          <label for="">Class<span class="red-color">*</span></label>
+          <select name="studentClass" id="studentClass" required>
+            <option value="" disabled selected>Select Class</option>
+            <option value="5th">5th</option>
+            <option value="6th">6th</option>
+            <option value="7th">7th</option>
+            <option value="8th">8th</option>
+            <option value="9th">9th</option>
+            <option value="10th">10th</option>
+          </select>
+          
+        </div>
+        <div class="multi-select-container">
+          <label for="subject-dropdown">Subjects<span class="red-color">*</span></label>
+          <div class="dropdown">
+            <button type="button" class="dropdown-toggle" id="subject-dropdown">Select Subjects</button>
+            <div class="dropdown-menu">
+              <div class="dropdown-search">
+                <input type="text" placeholder="Search subjects..." class="search-input">
+              </div>
+              <div class="dropdown-options">
+                <label><input type="checkbox" value="Maths"> Maths</label>
+                <label><input type="checkbox" value="Physics"> Physics</label>
+                <label><input type="checkbox" value="Biology"> Biology</label>
+                <label><input type="checkbox" value="Chemistry"> Chemistry</label>
+                <label><input type="checkbox" value="Science"> Science</label>
+                <label><input type="checkbox" value="English"> English</label>
+              </div>
+            </div>
+          </div>
+          <div class="selected-items"></div>
+        </div>
+        <div class="fleft">
+          <label for="">Query (Optional)</label>
+          <textarea class="input" placeholder="Enter your query or requirements" rows="3"></textarea>
+        </div>
+        <!-- Add this error message div below your form -->
+        <div>
+          <div id="form-error" class="error-message" style="display: none;"></div>
+          <input type="submit" value="submit" class="sum">
+        </div>
+      </form>
+    </div>
+
+<!-- Tutor Registration Popup -->
+<div id="tutorPopup" class="tutor-popup">
+  <div class="tutor-popup-content">
+      <!-- Close button -->
+      <span class="popup-close" id="popupClose">&times;</span>
+      
+      <div class="form-container ">
+  <h1>Register For Free & Grow Your Teaching Career</h1>
+  <p class="rem">"Join Our Network of Expert Tutors and Make a Difference in Students' Lives."</p>
+ 
+  <form id="tutorForm">
+      <div class="form-group">
+          <label for="email" class="required">Email</label>
+          <input type="email" id="email" name="email" required>
+          <div class="error" id="emailError">Please enter a valid email address</div>
+      </div>
+      
+      <div class="form-group">
+          <label for="name" class="required">Name</label>
+          <input type="text" id="name" name="name" required>
+          <div class="error" id="nameError">Please enter your name</div>
+      </div>
+      
+      <div class="form-group">
+          <label for="whatsapp" class="required">What'sApp Number</label>
+          <input type="tel" id="whatsapp" name="whatsapp" required>
+          <div class="error" id="whatsappError">Please enter a valid WhatsApp number</div>
+      </div>
+      
+      <div class="form-group">
+          <label for="contact" class="required">Contact Number</label>
+          <input type="tel" id="contact" name="contact" required>
+          <div class="error" id="contactError">Please enter a valid contact number</div>
+      </div>
+      
+      <div class="form-group">
+          <label for="city" class="required">City</label>
+          <input type="text" id="city" name="city" required>
+          <div class="error" id="cityError">Please enter your city</div>
+      </div>
+      
+      <div class="form-group">
+          <label for="locality" class="required">Locality</label>
+          <input type="text" id="locality" name="locality" required>
+          <div class="error" id="localityError">Please enter your locality</div>
+      </div>
+      
+      <div class="form-group">
+          <label for="address" class="required">Exact Address</label>
+          <textarea id="address" name="address" rows="3" required></textarea>
+          <div class="error" id="addressError">Please enter your address</div>
+      </div>
+      
+      <div class="form-group">
+          <label for="pincode">Pincode</label>
+          <input type="text" id="pincode" name="pincode">
+      </div>
+      
+      <div class="form-group">
+          <label class="required">Gender</label>
+          <div class="radio-group" id="genderGroup">
+              <div class="radio-option">
+                  <input type="radio" id="male" name="sex" value="Male">
+                  <label for="male">Male</label>
+              </div>
+              <div class="radio-option">
+                  <input type="radio" id="female" name="sex" value="Female">
+                  <label for="female">Female</label>
+              </div>
+          </div>
+          <div class="error" id="sexError" style="display: none;">Please select your gender</div>
+      </div>
+      
+      <div class="form-group">
+          <label for="age" class="required">Date of Birth</label>
+          <input type="date" id="age" name="age" required>
+          <div class="error" id="ageError">Please enter your date of birth</div>
+      </div>
+      
+  <!-- Update each file upload section like this -->
+  <div class="form-group">
+      <label for="qualification" class="required">Highest Qualification Document 💾</label>
+      <div class="file-upload" id="qualificationUpload">
+          <input type="file" id="qualification" name="qualification" 
+                 accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required style="display: none;">
+          <div class="file-upload-content">
+              <span class="click-to-upload">Click to upload qualification</span>
+              <div class="file-name" id="qualificationFileName">No file chosen</div>
+              <span class="upload-success">✓</span>
+          </div>
+          <div class="progress-container">
+              <div class="progress-bar" id="qualificationProgress"></div>
+          </div>
+      </div>
+      <div class="error" id="qualificationError">Please upload your qualification document</div>
+  </div>
+      
+      <div class="form-group">
+          <label for="tutorType" class="required">Tutor Type</label>
+          <select id="tutorType" name="tutorType" required>
+              <option value="">Select tutor type</option>
+              <option value="School Teacher">School Teacher</option>
+              <option value="College Teacher">College Teacher</option>
+              <option value="Professional Teacher">Professional Teacher</option>
+              <option value="Student - Study">Student - Study</option>
+          </select>
+          <div class="error" id="tutorTypeError">Please select your tutor type</div>
+      </div>
+      
+      <div class="form-group">
+          <label for="classCategory" class="required">Class Category</label>
+          <select id="classCategory" name="classCategory" required>
+              <option value="">Select a category</option>
+              <option value="Play Group - Class 2">Play Group - Class 2</option>
+              <option value="Class 3 - 5">Class 3 - 5</option>
+              <option value="Class 6 - 8">Class 6 - 8</option>
+              <option value="Class 9 - 10">Class 9 - 10</option>
+              <option value="Class 11 - 12">Class 11 - 12</option>
+              <option value="Medical Entrance & Neet">Medical Entrance & Neet</option>
+              <option value="Engineering Entrance & Jee">Engineering Entrance & Jee</option>
+              <option value="Hobby Class">Hobby Class</option>
+              <option value="Language">Language</option>
+              <option value="Coding & Tech">Coding & Tech</option>
+              <option value="Others">Others</option>
+          </select>
+          <div class="error" id="classCategoryError">Please select a class category</div>
+      </div>
+      
+      <div class="form-group">
+          <label for="subjects" class="required">Teaching Subjects</label>
+          <input type="text" id="subjects" name="subjects" required>
+          <div class="error" id="subjectsError">Please enter the subjects you teach</div>
+      </div>
+      
+      <div class="form-group">
+          <label for="experience" class="required">Total Year's Of Experience</label>
+          <input type="number" id="experience" name="experience" min="0" step="0.5" required>
+          <div class="error" id="experienceError">Please enter your years of experience</div>
+      </div>
+      
+      <div class="form-group">
+          <label for="fees" class="required">Fees Charge / Class</label>
+          <input type="number" id="fees" name="fees" min="0" required>
+          <div class="error" id="feesError">Please enter your fees per class</div>
+      </div>
+      
+      <div class="form-group">
+          <label for="aadhaarFront" class="required">Upload AADHAAR Front Side 💾</label>
+          <div class="file-upload" id="aadhaarFrontUpload">
+              <input type="file" id="aadhaarFront" name="aadhaarFront" 
+                     accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required style="display: none;">
+              <div class="file-upload-content">
+                  <span class="click-to-upload">Click to upload file</span>
+                  <div class="file-name" id="aadhaarFrontFileName">No file chosen</div>
+                  <span class="upload-success">✓</span>
+              </div>
+              <div class="progress-container">
+                  <div class="progress-bar" id="aadhaarFrontProgress"></div>
+              </div>
+          </div>
+          <div class="error" id="aadhaarFrontError">File must be PDF, DOC, or image and less than 1MB</div>
+      </div>
+      
+      <!-- Example for Aadhaar Back Side -->
+      <div class="form-group">
+          <label for="aadhaarBack" class="required">Upload AADHAAR Back Side 💾</label>
+          <div class="file-upload" id="aadhaarBackUpload">
+              <input type="file" id="aadhaarBack" name="aadhaarBack" 
+                     accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required style="display: none;">
+              <div class="file-upload-content">
+                  <span class="click-to-upload">Click to upload file</span>
+                  <div class="file-name" id="aadhaarBackFileName">No file chosen</div>
+                  <span class="upload-success">✓</span>
+              </div>
+              <div class="progress-container">
+                  <div class="progress-bar" id="aadhaarBackProgress"></div>
+              </div>
+          </div>
+          <div class="error" id="aadhaarBackError">File must be PDF, DOC, or image and less than 1MB</div>
+      </div>
+      <button type="submit">Submit Application</button>
+  </form>
+</div>
+</div>
+</div>
+
+<script src="assets/js/tutorform.js"></script>
+    <main>
+      <!--
+        - #HOME SECTION
+      -->
+
+      <section class="home" id="home">
+
+        <div class="deco-shape shape-1">
+          <img src="./assets/images/shape-1.png" alt="art shape" width="70">
+        </div>
+        <div class="deco-shape shape-2">
+          <img src="./assets/images/shape-2.png" alt="art shape" width="55">
+        </div>
+        <div class="deco-shape shape-3">
+          <img src="./assets/images/shape-3.png" alt="art shape" width="120">
+        </div>
+        <div class="deco-shape shape-4">
+          <img src="./assets/images/shape-4.png" alt="art shape" width="30">
+        </div>
+
+        <div class="home-left">
+
+          <p class="section-subtitle">Welcome To Om Dayal Home Tutions</p>
+
+          <h1 class="main-heading">
+            Get Home Tutions From Top
+            <span class="underline-img">Educators <img src="./assets/images/banner-line.png" alt="line"></span>
+          </h1>
+
+          <p class="section-text">
+            TOP EDUCATORS AT YOUR DOORSTEP
+          </p>
+
+          <div class="home-btn-group">
+            <!-- Desktop version (Contact Us) -->
+            <button class="btn btn-secondary desktop-btn">
+              <p class="btn-text">
+                <a href="https://wa.me/+91869192942" class="contact-link">Connect</a>
+              </p>
+              <span class="square"></span>
+            </button>
+            
+            <!-- Mobile version (Student and Tutor) -->
+            <div class="mobile-btns">
+              <button id="regs-mobile" class="btn btn-primary mobile-btn">
+                <span class="btn-text">
+                  <b>STUDENT</b>
+                  <img src="./assets/images/user-login.svg" alt="User Icon" class="btn-icon" />
+                </span>
+                <span class="square"></span>
+              <button id="openTutorPopup-mobile" class="popup-trigger btn btn-primary mobile-btn">
+                <span class="btn-text">
+                  <b>Tutor</b>
+                  <img src="./assets/images/user-login.svg" alt="User Icon" class="btn-icon" />
+                </span>
+                <span class="square"></span>
+              </button>
+            </div>
+          </div>
+          
+          <style>
+            /* Hide mobile buttons by default */
+            .mobile-btns {
+              display: none;
+            }
+            
+            /* Show mobile buttons and hide desktop button on mobile */
+            @media only screen and (max-width: 768px) {
+              .desktop-btn {
+                display: none;
+              }
+              
+              .mobile-btns {
+                display: flex;
+                gap: 10px; /* Space between buttons */
+              }
+            }
+          </style>
+
+        </div>
+
+        <div class="home-right">
+
+          <div class="img-box">
+
+            <img src="./assets/images/banner-img-bg.png" alt="colorful background shape" class="background-shape">
+            <div id="main-img-banner">
+              <img src="./assets/images/banner-img.png" alt="banner image" class="banner-img" id="banner-img-main">
+            </div>
+            
+            <div id="image-data">
+              <img src="./assets/images/testmo1.png" alt="" class="icon-1 smooth-zigzag-anim-1" width="250" id="testmo">
+
+            </div>
+
+            <img src="./assets/images/banner-aliment-icon-1.png" alt="" class="icon-2 smooth-zigzag-anim-2" width="240">
+            <img src="./assets/images/banner-aliment-icon-3.png" alt="" class="icon-3 smooth-zigzag-anim-3" width="195">
+            <img src="./assets/images/banner-aliment-icon-4.png" alt="" class="icon-4 drop-anim">
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- -----------------latest news----------------- -->
+      <div class="news-container">
+        <div class="title">
+          Contact us !
+        </div>
+
+
+        <ul>
+          <li >
+            <ion-icon class="iloc" name="mail"></ion-icon>
+            <p><a href="mailto:omdayalhometuition@gmail.com">omdayalhometuition@gmail.com</a></p>
+          </li>
+
+          <li>
+            <ion-icon name="call" class="iloc"></ion-icon>
+              <p><a href="tel:+91 869192942"> +91 869192942</a></p>
+          </li>
+          <li>
+            <ion-icon name="call" class="iloc"></ion-icon>
+            <p><a href="tel:+91 9572645103">+91 9572645103</a></p>
+          </li>
+        </ul>
+      </div>
+
+
+      <!--
+        - #COURSE CATEGORY SECTION
+      -->
+
+      <section class="category">
+
+        <p class="section-subtitle">Our Services</p>
+
+        <h2 class="section-title">Explore Popular Services</h2>
+
+        <ul class="course-item-group">
+
+          <li class="course-category-item">
+
+            <div class="wrapper">
+              <img src="./assets/images/carrer.png" alt="category icon" class="category-icon default">
+
+              <img src="./assets/images/carrer.png" alt="category icon white" class="category-icon hover">
+            </div>
+
+            <div class="course-category-content">
+              <h3 class="category-title">
+                <a href="#">Tution counseling</a>
+              </h3>
+
+              <p class="category-subtitle">Career Counseling is an We can provide affordable fee options with our range of Councelling options
+                and partnerships available.</p>
+            </div>
+
+          </li>
+
+
+          <li class="course-category-item">
+
+            <div class="wrapper">
+              <img src="./assets/images/education.png" alt="category icon" class="category-icon default">
+
+              <img src="./assets/images/education.png" alt="category icon white" class="category-icon hover">
+            </div>
+
+            <div class="course-category-content">
+              <h3 class="category-title">
+                <a href="#">Study Overseas</a>
+              </h3>
+
+              <p class="category-subtitle">We have connections with top-class Tutors those which can
+                transform your career.</p>
+            </div>
+
+          </li>
+
+
+          <li class="course-category-item">
+
+            <div class="wrapper">
+              <img src="./assets/images/schlor.png" alt="category icon" class="category-icon default">
+
+              <img src="./assets/images/schlor.png" alt="category icon white" class="category-icon hover">
+            </div>
+
+            <div class="course-category-content">
+              <h3 class="category-title">
+                <a href="#">Student support</a>
+              </h3>
+
+              <p class="category-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo veniam dolorem asperiores blanditiis nostrum consectetur?</p>
+            </div>
+
+          </li>
+
+        </ul>
+
+      </section>
+
+
+
+
+
+      <!--
+        - #ABOUT SECTION
+      -->
+
+      <section class="about" id="about">
+
+        <div class="about-left">
+
+          <div class="img-box">
+            <img src="./assets/images/about-img-bg.png" alt="about bg" class="about-bg">
+
+            <img src="./assets/images/about-img.png" alt="about person" class="about-img">
+
+            <img src="./assets/images/banner-aliment-icon-1.png" alt="" class="icon-1 smooth-zigzag-anim-1" width="250">
+            <img src="./assets/images/banner-aliment-icon-3.png" alt="" class="icon-2 smooth-zigzag-anim-3" width="195">
+          </div>
+
+        </div>
+
+        <div class="about-right">
+
+          <p class="section-subtitle">About Us</p>
+
+          <h2 class="section-title">We Have Best CERTIFIED COUNSELORS</h2>
+
+          <p class="section-text">
+            Our aim is to provide the best and top-notch quality education consulting services to students
+          </p>
+
+          <ul class="about-ul">
+
+            <li>
+              <ion-icon name="checkmark-circle"></ion-icon>
+              <p>OM Dayal Home Tuition was founded with the promise of providing the most efficient and
+                effective counselling services.</p>
+            </li>
+
+            <li>
+              <ion-icon name="checkmark-circle"></ion-icon>
+              <p>Guide understudies through the confirmation, visa and flight forms for their picked college and study
+                goal.</p>
+            </li>
+
+            <li>
+              <ion-icon name="checkmark-circle"></ion-icon>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque quisquam exercitationem ad accusantium libero veniam.</p>
+            </li>
+
+          </ul>
+
+          <button class="btn btn-primary">
+            <p class="btn-text">
+              <a href="about.html"><span style="color: white;">Explore More</span></a>
+            </p>
+            <span class="square"></span>
+          </button>
+
+        </div>
+
+      </section>
+
+
+
+
+
+      <!--
+        - #EVENT SECTION
+      -->
+
+      <section class="event" id="faq">
+
+        <div class="event-left">
+
+          <div class="event-banner">
+            <img src="./assets/images/event-img.jpg" alt="event banner" class="banner-img">
+          </div>
+
+          <button class="play smooth-zigzag-anim-1">
+            <div class="play-icon pulse-anim">
+              <ion-icon name="play-circle"></ion-icon>
+            </div>
+
+            <p>
+              <a href="#"><span style="color: white;">Know More!</span></a>
+            </p>
+          </button>
+
+        </div>
+
+        <div class="event-right">
+
+          <p class="section-subtitle">Student Services</p>
+
+          <h2 class="section-title">Know more about our student services</h2>
+
+          <div class="event-card-group">
+
+            <article class="faq">
+              <div class="faq_icon"><i class="uil uil-plus"></i></div>
+              <div class="question_answer">
+                <h4>Why you choose us </h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, sapiente saepe harum ullam asperiores quo neque dolor aut, ratione omnis eveniet optio quod quam doloremque molestiae sed vero quibusdam consequatur nemo. Dolorem eveniet, quaerat eaque aut et nam quibusdam dicta error eum. Explicabo accusantium cupiditate, sequi maxime eos vitae quo natus cum labore sint voluptatum enim dolores repudiandae ullam rem nesciunt aperiam eaque quas id! Cum asperiores laboriosam tenetur saepe repellendus! Voluptatibus doloribus, repellendus rem facere ab eius. Eum perspiciatis veritatis placeat quidem, excepturi eaque rem delectus, earum, molestiae culpa perferendis. Fugiat quia commodi itaque laborum aperiam iure beatae quo. </p>
+                <p><a href="page.html">Learn More>></a></p>
+              </div>
+            </article>
+            <article class="faq">
+              <div class="faq_icon"><i class="uil uil-plus"></i></div>
+              <div class="question_answer">
+                <h4>example topic</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum repellat, eaque ratione odit dolores, voluptatibus accusantium blanditiis aut voluptates quisquam numquam cupiditate sunt explicabo error ex eius! Suscipit quaerat cumque iure dolor dolore quo earum tempore fugit eveniet placeat accusantium a veniam aperiam sint dolorum nesciunt dolorem magni, officiis non. Expedita totam facere aliquam iste ad velit magnam id tempora aliquid, tenetur adipisci quidem itaque ratione explicabo, cupiditate quibusdam in sed tempore. Consequuntur quisquam fuga facere sunt aperiam nam, dicta asperiores neque est earum eos delectus nobis fugit ea ullam natus quod fugiat, placeat totam laborum quibusdam similique dolor. Culpa.</p>
+                <p><a href="admission.html">Learn More>></a></p>
+              </div>
+            </article>
+            <article class="faq">
+              <div class="faq_icon"><i class="uil uil-plus"></i></div>
+              <div class="question_answer">
+                <h4>Cost of Education </h4>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. At sequi explicabo quam possimus eligendi accusamus fuga doloremque beatae nobis, natus sapiente hic assumenda suscipit modi blanditiis, architecto officia optio nostrum perferendis exercitationem quod? Pariatur sed sint inventore veritatis! Adipisci sunt eveniet aut inventore officia consectetur iusto! Impedit maxime voluptate quaerat, sed libero, dolorem placeat aliquam commodi sequi aut ullam earum sapiente nam autem animi, consectetur cum quisquam omnis ratione eveniet reprehenderit odit minima. Quibusdam id necessitatibus recusandae, vel qui sapiente! Similique dolor aspernatur suscipit repellat in, consequuntur natus fugit expedita adipisci vel debitis dolores ipsum quae quaerat quisquam mollitia culpa.</p>
+                <p><a href="cost.html">Learn More>></a></p>
+              </div>
+            </article>
+            <article class="faq">
+              <div class="faq_icon"><i class="uil uil-plus"></i></div>
+              <div class="question_answer">
+                <h4>about us </h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo esse nostrum suscipit consequuntur vitae minus assumenda! Unde molestiae quasi repellendus a eaque, modi ipsum possimus accusantium ipsam omnis tenetur culpa! Impedit sequi, corporis pariatur nostrum asperiores suscipit veritatis esse harum ducimus minus quo dicta amet. Velit magni odio amet alias culpa harum quidem quam veritatis! Nesciunt unde illum fugit at molestiae corporis nulla earum quas consectetur. Quod nisi mollitia dolores atque beatae veritatis, nesciunt tenetur? Hic aliquam accusamus animi corporis voluptates ad fuga eligendi dicta facilis expedita, odio ipsum quod id? Officiis sint impedit, aspernatur earum et eligendi doloribus illum?</p>
+                <p><a href="ielts.html">Learn More>></a></p>
+              </div>
+            </article>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+
+
+      <!--
+        - #FEATURES SECTION
+      -->
+
+      <section class="features " id="services">
+
+        <div class="features-left">
+
+          <p class="section-subtitle">Core Services</p>
+
+          <h2 class="section-title">Explore Our Services</h2>
+
+          <ul>
+
+            <li class="features-item">
+              <div class="item-icon-box blue">
+                <img src="./assets/images/feature-icon-1.png" alt="feature icon">
+              </div>
+
+              <div class="wrapper">
+
+                <h3 class="item-title">OMD Councelling</h3>
+
+                <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem neque, incidunt doloremque animi molestiae distinctio pariatur magnam quaerat repudiandae blanditiis.</p>
+
+              </div>
+            </li>
+
+            <li class="features-item">
+              <div class="item-icon-box pink">
+                <img src="./assets/images/feature-icon-2.png" alt="feature icon">
+              </div>
+
+              <div class="wrapper">
+
+                <h3 class="item-title">example</h3>
+
+                <p class="item-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam sunt sint labore, nihil totam quibusdam.</p>
+
+              </div>
+            </li>
+
+            <li class="features-item">
+              <div class="item-icon-box purple">
+                <img src="./assets/images/feature-icon-3.png" alt="feature icon">
+              </div>
+
+              <div class="wrapper">
+
+                <h3 class="item-title">example</h3>
+
+                <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, voluptas consequatur facilis eius animi in!</p>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div class="features-right">
+          <img src="./assets/images/coure-features-img.jpg" alt="core features image">
+        </div>
+
+      </section>
+
+
+
+
+
+      <!-- founder section -->
+
+      <section class="instructor" id="team">
+
+        <!-- <p class="section-subtitle">Best Coach</p> -->
+
+        <h2 class="section-title">OOR FOUNDERS</h2>
+
+        <div class="founder-grid">
+
+          <div class="founder-card">
+        
+            <div class="founder-img-box">
+              <img src="./assets/images/CEOSumitSingh.jpg" alt="CEO Sumit Singh">
+        
+              <div class="social-link">
+                <a href="#" class="facebook">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+        
+                <a href="#" class="instagram">
+                  <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+        
+                <a href="#" class="twitter">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+              </div>
+            </div>
+        
+            <h4 class="founder-name">Sumit Singh</h4>
+            <p class="founder-title">CEO</p>
+        
+          </div>
+        
+          <div class="founder-card">
+        
+            <div class="founder-img-box">
+              <img src="./assets/images/co-founderPoojaSingh1.jpg" alt="Co-Founder Pooja Singh">
+        
+              <div class="social-link">
+                <a href="#" class="facebook">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+        
+                <a href="#" class="instagram">
+                  <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+        
+                <a href="#" class="twitter">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+              </div>
+            </div>
+        
+            <h4 class="founder-name">Pooja Singh</h4>
+            <p class="founder-title">Co-Founder</p>
+        
+          </div>
+        
+        </div>
+        
+
+      </section>
+
+
+      <!--
+        - #INSTRUCTOR SECTION
+      -->
+
+      <section class="instructor" id="team">
+
+        <!-- <p class="section-subtitle">Best Coach</p> -->
+
+        <h2 class="section-title">Our Expert Team</h2>
+
+        <div class="instructor-grid">
+
+          <div class="instructor-card">
+
+            <div class="instructor-img-box">
+              <img src="./assets/images/CEOSumitSingh.jpg" alt" alt="CEO Sumit singh">
+
+              <div class="social-link">
+                <a href="#" class="facebook">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+
+                <a href="#" class="instagram">
+                  <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+
+                <a href="#" class="twitter">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+              </div>
+            </div>
+
+            <h4 class="instructor-name">Sumit Singh</h4>
+
+            <p class="instructor-title">CEO</p>
+
+          </div>
+
+          <div class="instructor-card">
+
+            <div class="instructor-img-box">
+              <img src="./assets/images/co-founderPoojaSingh1.jpg" alt="co-founder">
+
+              <div class="social-link">
+                <a href="#" class="facebook">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+
+                <a href="#" class="instagram">
+                  <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+
+                <a href="#" class="twitter">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+              </div>
+            </div>
+
+            <h4 class="instructor-name">Pooja SIngh</h4>
+
+            <p class="instructor-title">Co-Founder</p>
+
+          </div>
+
+          <div class="instructor-card">
+
+            <div class="instructor-img-box">
+              <img src="./assets/images/instructor-3.jpg" alt="instructor fiona dean">
+
+              <div class="social-link">
+                <a href="#" class="facebook">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+
+                <a href="#" class="instagram">
+                  <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+
+                <a href="#" class="twitter">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+              </div>
+            </div>
+
+            <h4 class="instructor-name">Fiona Dean</h4>
+
+            <p class="instructor-title">Counselor</p>
+
+          </div>
+
+          <div class="instructor-card">
+
+            <div class="instructor-img-box">
+              <img src="./assets/images/instructor-4.jpg" alt="instructor cherish sosa">
+
+              <div class="social-link">
+                <a href="#" class="facebook">
+                  <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+
+                <a href="#" class="instagram">
+                  <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+
+                <a href="#" class="twitter">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+              </div>
+            </div>
+
+            <h4 class="instructor-name">Cherish Sosa</h4>
+
+            <p class="instructor-title">Counselor</p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+
+
+      <!--
+        - #TESTIMONIALS
+      -->
+
+      <section class="testimonials">
+
+        <div class="testimonials-left">
+
+          <p class="section-subtitle">Testimonial</p>
+
+          <h2 class="section-title">What Our Students Says About Us</h2>
+
+          <p class="section-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus laudantium ea atque autem fugiat,
+            molestiae ipsum rem doloribus ex consequuntur.
+          </p>
+
+        </div>
+
+        <div class="testimonials-right" id="testimonials-container">
+
+          <div class="testimonials-card">
+            <img src="./assets/images/quote.png" alt="quote icon" class="quote-img">
+
+            <p class="testimonials-text">
+              "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim unde, pariatur officiis culpa, quia libero
+              debitis mollitia totam doloremque in saepe voluptatibus architecto corrupti cupiditate."
+            </p>
+
+            <div class="testimonials-client">
+
+              <div class="client-img-box">
+                <img src="./assets/images/client.jpg" alt="client christine rose">
+              </div>
+
+              <div class="client-detail">
+                <h4 class="client-name">Christine Rose</h4>
+
+                <p class="client-title">Student</p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="testimonials-card">
+            <img src="./assets/images/quote.png" alt="quote icon" class="quote-img">
+
+            <p class="testimonials-text">
+              "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim unde, pariatur officiis culpa, quia libero
+              debitis mollitia totam doloremque in saepe voluptatibus architecto corrupti cupiditate."
+            </p>
+
+            <div class="testimonials-client">
+
+              <div class="client-img-box">
+                <img src="./assets/images/client.jpg" alt="client christine rose">
+              </div>
+
+              <div class="client-detail">
+                <h4 class="client-name">Name</h4>
+
+                <p class="client-title">Student</p>
+              </div>
+
+            </div>
+          </div>
+          <div class="testimonials-card">
+            <img src="./assets/images/quote.png" alt="quote icon" class="quote-img">
+
+            <p class="testimonials-text">
+              "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim unde, pariatur officiis culpa, quia libero
+              debitis mollitia totam doloremque in saepe voluptatibus architecto corrupti cupiditate."
+            </p>
+
+            <div class="testimonials-client">
+
+              <div class="client-img-box">
+                <img src="./assets/images/client.jpg" alt="client christine rose">
+              </div>
+
+              <div class="client-detail">
+                <h4 class="client-name">Christine Rose</h4>
+
+                <p class="client-title">Student</p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="testimonials-card">
+            <img src="./assets/images/quote.png" alt="quote icon" class="quote-img">
+
+            <p class="testimonials-text">
+              "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim unde, pariatur officiis culpa, quia libero
+              debitis mollitia totam doloremque in saepe voluptatibus architecto corrupti cupiditate."
+            </p>
+
+            <div class="testimonials-client">
+
+              <div class="client-img-box">
+                <img src="./assets/images/client.jpg" alt="client christine rose">
+              </div>
+
+              <div class="client-detail">
+                <h4 class="client-name">Name</h4>
+
+                <p class="client-title">Student</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!--
+        - #CONTACT
+      -->
+
+      <section class="contact">
+
+        <div class="contact-card" id="contact">
+          <img src="./assets/images/cta-bg-img.png" alt="shape" class="contact-card-bg">
+
+          <h2>Start Your Best Education With Us</h2>
+
+          <button class="btn btn-primary">
+            <p class="btn-text">Contact Us</p>
+            <span class="square"></span>
+          </button>
+        </div>
+
+      </section>
+
+    </main>
+
+
+
+
+
+    <!--
+      - #FOOTER
+    -->
+
+    <footer>
+
+      <div class="footer-grid">
+
+        <div class="grid-item">
+
+          <div class="footer-logo">
+            <img src="./assets/images/withoutbackground_logo.png" alt="educator logo white">
+          </div>
+
+          <p class="footer-text">
+            Our range of value-added services include assistance for Education Loan, Financial Aid, Pre-Departure
+            Briefing, Forex, Travel and Accommodation Assistance.
+          </p>
+
+          <div class="social-link">
+            <a href="#">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+            <a href="#">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+            <a href="#">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+            <a href="#">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </div>
+
+        </div>
+
+        <ul class="grid-item">
+
+          <h4 class="item-heading">Our Link</h4>
+
+          <li class="list-item">
+            <a href="#home">Home</a>
+          </li>
+
+          <li class="list-item">
+            <a href="#about">About Us</a>
+          </li>
+
+          <li class="list-item">
+            <a href="#course">Study</a>
+          </li>
+
+          <li class="list-item">
+            <a href="#services">Services</a>
+          </li>
+
+          <li class="list-item">
+            <a href="#contact">Contact Us</a>
+          </li>
+
+        </ul>
+
+        <ul class="grid-item">
+
+          <h4 class="item-heading">Other Link</h4>
+
+          <li class="list-item">
+            <a href="#team">Team</a>
+          </li>
+
+          <li class="list-item">
+            <a href="#faq">FAQ</a>
+          </li>
+
+          <li class="list-item">
+            <a href="#services">Services</a>
+          </li>
+
+          <li class="list-item">
+            <a href="#">Privacy Policy</a>
+          </li>
+
+          <li class="list-item">
+            <a href="#">Term & Condition</a>
+          </li>
+
+        </ul>
+        <div class="grid-item">
+
+          <h4 class="item-heading">Contact Us</h4>
+
+          <div class="wrapper">
+
+            <p class="footer-text">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet, laboriosam accusamus recusandae nihil asperiores natus.
+              Call : +91 1236547896, +91 1234568796
+            </p>
+          </div>
+
+        </div>
+
+      
+
+      </div>
+  
+
+      <!-- Developers Information Section -->
+      <div class="grid-item developer-info">
+
+        <!-- Developer Card 2 -->
+        <div class="developer-card">
+          <a href="https://your-image-link.com" target="_blank">
+            <img src="./assets/images/instructor-1.jpg" alt="Developer Image">
+          </a>
+
+          <h4 class="developer-name">
+            <a href="https://your-name-link.com" target="_blank">Rohit</a>
+          </h4>
+
+          <div class="developer-social">
+            <a href="https://facebook.com/yourprofile" target="_blank" class="dev-social-icon fb">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+            <a href="https://twitter.com/yourprofile" target="_blank" class="dev-social-icon tw">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+            <a href="https://instagram.com/yourprofile" target="_blank" class="dev-social-icon ig">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+            <a href="https://youtube.com/yourchannel" target="_blank" class="dev-social-icon yt">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </div>
+        </div>
+
+        <!-- Developer Card 1 -->
+        <div class="developer-card">
+          <a href="https://your-image-link.com" target="_blank">
+            <img src="./assets/images/instructor-2.jpg" alt="Developer Image">
+          </a>
+
+          <h4 class="developer-name">
+            <a href="https://your-name-link.com" target="_blank">Nitesh jha</a>
+          </h4>
+
+          <div class="developer-social">
+            <a href="https://facebook.com/yourprofile" target="_blank" class="dev-social-icon fb">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+            <a href="https://twitter.com/yourprofile" target="_blank" class="dev-social-icon tw">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+            <a href="https://instagram.com/yourprofile" target="_blank" class="dev-social-icon ig">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+            <a href="https://youtube.com/yourchannel" target="_blank" class="dev-social-icon yt">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+
+      
+  <p class="copyright">
+    Copyright © 2025 <a href="#">OM DAYAL HOME TUITION PVT. LTD</a>. All rights reserved.
+  </p>
+
+  </footer>
+
+  </div>
+  <!-- ----------------------------changed testimonials------------------------ -->
+  
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/testimonial.js"></script>
+  <script src="./assets/js/tutorform.js"></script>
+  
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+
+</body>
+
+<!-- <script src="./assets/js/pop.js"></script> -->
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+
+</html>

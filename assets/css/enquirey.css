@@ -1,0 +1,301 @@
+/* ========================================= */
+/* Unified Form Styles - Matching the Big Form */
+/* ========================================= */
+
+/* Popup Container */
+.enquire {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    overflow-y: auto;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    padding: 20px 10px; /* Reduce vertical padding */
+  align-items: flex-start; /* Change from center to start */
+  padding-top: 40px; 
+  }
+  
+  .enquire.revel {
+    display: flex;
+    flex-direction: column; /* Stack header and form vertically */
+  }
+  
+  /* Header Container */
+  .form-header {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    margin-bottom: 10px; /* Reduce space below header */
+    padding: 0 15px;
+  }
+  
+  .form-header h1 {
+    color: #ccc;
+    margin-bottom: 10px;
+    font-size: 22px; /* Reduce from 24px */
+  margin-bottom: 5px
+  }
+  
+  .form-header .rem {
+    color: var(--light-orange);
+    margin-bottom: 0;
+    font-style: italic;
+    font-size: 14px;
+  }
+  
+  /* Form Container */
+  .fsum {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #132241;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+
+  }
+  
+  /* Form Groups */
+  .fleft, .fleft1 {
+    margin-bottom: 15px;
+    position: relative;
+  }
+  
+  .fsum label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #ccc;
+  }
+  
+  .fsum .red-color {
+    color: red;
+  }
+  
+  /* Input fields */
+  .fsum input,
+  .fsum select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+    background-color: white;
+
+  }
+  
+  .fsum input:focus,
+  .fsum select:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+  }
+  
+  /* Submit button */
+  .fsum .sum {
+    background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(74, 144, 226, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: 100%;
+    margin-top: 15px;
+
+  }
+  
+  .fsum .sum:hover {
+    background: linear-gradient(to right, var(--secondary-blue), var(--dark-blue));
+    box-shadow: 0 6px 8px rgba(74, 144, 226, 0.15);
+    transform: translateY(-2px);
+  }
+  
+  /* Close button */
+  .cross {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 28px;
+    color: #666;
+    cursor: pointer;
+    z-index: 10;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+  
+  .cross:hover {
+    color: var(--primary-blue);
+    transform: scale(1.1);
+  }
+  
+  /* Multi-select dropdown styles */
+  .multi-select-container {
+    margin-bottom: 20px;
+  }
+  
+  .dropdown {
+    position: relative;
+    width: 100%;
+  }
+  
+  .dropdown-toggle {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    text-align: left;
+    cursor: pointer;
+  }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    z-index: 10;
+    padding: 10px;
+  }
+  
+  .dropdown-search {
+    margin-bottom: 10px;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .dropdown-options label {
+    display: block;
+    padding: 8px;
+    cursor: pointer;
+    color: var(--gray-900);
+  }
+  
+  .dropdown-options label:hover {
+    background-color: var(--gray-100);
+  }
+  
+  .selected-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+  }
+  
+  .selected-item {
+    background-color: var(--light-blue);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  /* Error message */
+  .error-message {
+    color: var(--error);
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+  }
+  
+  /* ========================================= */
+  /* Responsive Layout */
+  /* ========================================= */
+  
+  /* Desktop Layout (768px and up) - 2 columns */
+  @media (min-width: 768px) {
+    .enquire.revel {
+      align-items: center;
+      padding-top: 50px;
+    }
+    
+    .fsum {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+  
+    /* Make these span both columns */
+    .multi-select-container,
+    .error-message,
+    .sum {
+      grid-column: 1 / -1;
+    }
+  }
+  
+  /* Mobile Layout (767px and below) - 1 column */
+  @media (max-width: 767px) {
+    .enquire {
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 50px; /* Extra space for close button */
+    }
+  
+    .form-header {
+      position: static;
+      background-color: transparent;
+      margin-bottom: 5px;
+    }
+  
+    .fsum {
+      margin-top: 0;
+      max-height: calc(100vh - 150px); /* Adjust based on your needs */
+      overflow-y: auto;
+    }
+  }
+    .form-header {
+      padding: 10px;
+    }
+    
+    .form-header h1 {
+      font-size: 20px;
+    }
+    
+  
+    
+    .fsum input,
+    .fsum select {
+      padding: 10px;
+      font-size: 14px;
+    }
+    
+    .fsum .sum {
+      padding: 12px 20px;
+      font-size: 14px;
+    }
+    
+    .cross {
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+    }
+  

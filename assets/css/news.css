@@ -1,0 +1,86 @@
+.news-container {
+    /* position: fixed; */
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* padding: 30px; */
+    /* font-family: "Roboto", sans-serif; */
+    box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.3);
+    /* margin-top: 100px; */
+}
+
+.news-container .title {
+    position: absolute;
+    background: #07252d;
+    text-transform: uppercase;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 9999;
+    padding: 0 24px;
+    color: white;
+    border-radius: 5px;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0008);
+    padding: 10px 24px;
+    font-weight: bold;
+    z-index: 200;
+    animation: animate 1s linear infinite;
+}
+@keyframes animate {
+    0%,5%,18%,20%,40%,45%,50%,55%,60%,70%,90%
+    {
+        color: #0e3742;
+        text-shadow: none;
+    }
+    18.2%,20%,35%,40%,45%,50%,55%,60%,70%,80%,90%,100%
+    {
+        color: #fff;
+        text-shadow: 0 0 10px #03bcf4,
+        0 0 10px #03bcf4,
+        0 0 40px #03bcf4,
+        0 0 80px #03bcf4;
+    }
+}
+
+
+.news-container ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    animation: scroll 25s infinite linear;
+}
+
+.news-container ul li {
+    white-space: nowrap;
+    padding: 10px 24px;
+    color: #494949;
+    position: relative;
+    display: flex; /* Add this */
+    align-items: center; /* Add this */
+}
+
+.news-container ul li::after {
+    content:"";
+    width: 1px;
+    height: 100%;
+    background: #b8b8b8;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.news-container ul li:last-child::after {
+    display: none;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(-1083px);
+
+    }
+}
