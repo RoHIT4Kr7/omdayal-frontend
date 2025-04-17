@@ -7,6 +7,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize form validation
     setupFormValidation();
+    
+    // Set max date for date of birth input to today
+    const ageInput = document.getElementById('age');
+    if (ageInput) {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const day = String(today.getDate()).padStart(2, '0');
+        const maxDate = `${year}-${month}-${day}`;
+        ageInput.setAttribute('max', maxDate);
+        console.log(`Set max date for age input to ${maxDate}`);
+    }
 });
 
 /**
@@ -72,9 +84,22 @@ function initTutorPopup() {
  * Set up file upload functionality
  */
 function setupFileUploads() {
+    // Check if file uploads are already set up to prevent duplicate setup
+    if (document.getElementById('qualification')?.hasAttribute('data-initialized')) {
+        return;
+    }
+    
     setupFileUpload('qualification', 'qualificationFileName', 'qualificationError');
     setupFileUpload('aadhaarFront', 'aadhaarFrontFileName', 'aadhaarFrontError');
     setupFileUpload('aadhaarBack', 'aadhaarBackFileName', 'aadhaarBackError');
+    
+    // Mark file inputs as initialized
+    ['qualification', 'aadhaarFront', 'aadhaarBack'].forEach(id => {
+        const fileInput = document.getElementById(id);
+        if (fileInput) {
+            fileInput.setAttribute('data-initialized', 'true');
+        }
+    });
 }
 
 /**
@@ -86,7 +111,9 @@ function setupFileUpload(inputId, fileNameId, errorId) {
     const error = document.getElementById(errorId);
     const uploadDiv = document.getElementById(inputId + 'Upload');
     
-    if (!fileInput || !fileName || !error || !uploadDiv) return;
+    if (!fileInput || !fileName || !error || !uploadDiv) {
+        return;
+    }
     
     const successIcon = uploadDiv.querySelector('.upload-success');
     const clickable = uploadDiv.querySelector('.click-to-upload') || uploadDiv.querySelector('.file-upload-content');
@@ -105,11 +132,24 @@ function setupFileUpload(inputId, fileNameId, errorId) {
         });
     }
     
-    // Remove any existing event listeners on the file input
-    const newFileInput = fileInput.cloneNode(true);
-    fileInput.parentNode.replaceChild(newFileInput, fileInput);
+    // Check if the file input already has a data-has-file attribute
+    // This is important to preserve the state between form submissions
+    if (fileInput.hasAttribute('data-has-file')) {
+        if (successIcon) successIcon.style.display = 'inline';
+        error.style.display = 'none';
+        uploadDiv.style.borderColor = '#ddd';
+    }
     
-    newFileInput.addEventListener('change', function() {
+    // Set initial state based on whether a file is already selected
+    if (fileInput.files.length > 0) {
+        fileInput.setAttribute('data-has-file', 'true');
+        fileName.textContent = fileInput.files[0].name;
+        if (successIcon) successIcon.style.display = 'inline';
+        error.style.display = 'none';
+        uploadDiv.style.borderColor = '#ddd';
+    }
+    
+    fileInput.addEventListener('change', function() {
         if (this.files.length > 0) {
             const file = this.files[0];
             fileName.textContent = file.name;
@@ -125,13 +165,24 @@ function setupFileUpload(inputId, fileNameId, errorId) {
                 error.style.display = 'block';
                 uploadDiv.style.borderColor = 'red';
                 error.textContent = "Invalid file type or size exceeds 1MB!";
+                // Clear the data-has-file attribute
+                this.removeAttribute('data-has-file');
             } else {
                 error.style.display = 'none';
                 uploadDiv.style.borderColor = '#ddd';
+                
+                // Mark this field as having a file selected (for validation)
+                this.setAttribute('data-has-file', 'true');
+                
+                // Show success icon
+                if (successIcon) successIcon.style.display = 'inline';
             }
         } else {
             fileName.textContent = 'No file chosen';
             if (successIcon) successIcon.style.display = 'none';
+            
+            // Clear the data-has-file attribute
+            this.removeAttribute('data-has-file');
         }
     });
 }
@@ -143,7 +194,10 @@ function setupFormValidation() {
     const tutorForm = document.getElementById('tutorForm');
     if (!tutorForm) return;
     
-    // Add validation on input change
+    // Add novalidate attribute to prevent browser's default validation
+    tutorForm.setAttribute('novalidate', '');
+    
+    // Add event listeners for real-time validation
     const inputs = tutorForm.querySelectorAll('input, select, textarea');
     inputs.forEach(input => {
         input.addEventListener('blur', function() {
@@ -152,16 +206,13 @@ function setupFormValidation() {
     });
 }
 
-/**
- * Validate a single field
- */
 function validateField(field) {
     const fieldId = field.id;
     const error = document.getElementById(fieldId + 'Error');
     
     if (!error) return;
     
-    // Reset error
+    // Reset error display
     error.style.display = 'none';
     field.style.borderColor = '#ddd';
     
@@ -173,7 +224,7 @@ function validateField(field) {
     }
     
     // Email validation
-    if (field.type === 'email' && field.value) {
+    if (fieldId === 'email' && field.value.trim()) {
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
             error.style.display = 'block';
             field.style.borderColor = 'red';
@@ -182,8 +233,32 @@ function validateField(field) {
     }
     
     // Phone validation
-    if ((fieldId === 'whatsapp' || fieldId === 'contact') && field.value) {
+    if ((fieldId === 'whatsapp' || fieldId === 'contact') && field.value.trim()) {
         if (!/^[0-9]{10,15}$/.test(field.value)) {
+            error.style.display = 'block';
+            field.style.borderColor = 'red';
+            return false;
+        }
+    }
+    
+    // Age validation (must be at least 18 years old)
+    if (fieldId === 'age' && field.value) {
+        const birthDate = new Date(field.value);
+        const today = new Date();
+        
+        // Calculate age
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDiff = today.getMonth() - birthDate.getMonth();
+        
+        // Adjust age if birthday hasn't occurred this year
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        
+        console.log(`Age calculated: ${age} years`);
+        
+        if (age < 18) {
+            error.textContent = 'You must be at least 18 years old to register';
             error.style.display = 'block';
             field.style.borderColor = 'red';
             return false;
@@ -194,68 +269,25 @@ function validateField(field) {
 }
 
 /**
- * Handle form submission
+ * Check if a file is selected for a given input
  */
-function handleFormSubmission(e) {
-    e.preventDefault();
-        
-        if (!validateForm()) return;
-        
-        const form = e.target;
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalBtnText = submitBtn.textContent;
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Submitting...';
-        
-        try {
-            const formData = new FormData(form);
-            
-            // Show upload progress
-            ['qualification', 'aadhaarFront', 'aadhaarBack'].forEach(id => {
-                if (document.getElementById(id).files.length > 0) {
-                    showUploadProgress(id);
-                }
-            });
-            
-            const xhr = new XMLHttpRequest();
-            
-            xhr.upload.onprogress = function(e) {
-                if (e.lengthComputable) {
-                    const percent = Math.round((e.loaded / e.total) * 100);
-                    updateAllProgressBars(percent);
-                }
-            };
-            
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4) {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = originalBtnText;
-                    
-                    if (xhr.status === 200) {
-                        const response = JSON.parse(xhr.responseText);
-                        if (response.success) {
-                            alert("Submission successful!");
-                            form.reset();
-                            resetAllUploadStatuses();
-                        closePopup(); // Close popup after successful submission
-                        } else {
-                            alert("Error: " + response.message);
-                        }
-                    } else {
-                        alert("Submission failed. Please try again.");
-                    }
-                }
-            };
-            
-            xhr.open("POST", "https://api.omdayalhometuition.com/api/tutors/submit");
-            xhr.send(formData);
-            
-        } catch (error) {
-            console.error("Error:", error);
-            alert("An error occurred. Please try again.");
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalBtnText;
-        }
+function isFileSelected(inputId) {
+    const fileInput = document.getElementById(inputId);
+    if (!fileInput) {
+        return false;
+    }
+    
+    // Check if there are files selected
+    if (fileInput.files.length > 0) {
+        return true;
+    }
+    
+    // Check if the data-has-file attribute is set
+    if (fileInput.hasAttribute('data-has-file')) {
+        return true;
+    }
+    
+    return false;
 }
 
 /**
@@ -290,16 +322,16 @@ function validateForm() {
     });
     
     // Special validation for sex/gender (radio buttons)
-const sexSelected = document.querySelector('input[name="sex"]:checked');
-const sexError = document.getElementById('sexError');
-if (!sexSelected) {
-    sexError.style.display = 'block';
-    document.getElementById('genderGroup').style.border = '1px solid red';
-    isValid = false;
-} else {
-    sexError.style.display = 'none';
-    document.getElementById('genderGroup').style.border = 'none';
-}
+    const sexSelected = document.querySelector('input[name="sex"]:checked');
+    const sexError = document.getElementById('sexError');
+    if (!sexSelected) {
+        sexError.style.display = 'block';
+        document.getElementById('genderGroup').style.border = '1px solid red';
+        isValid = false;
+    } else {
+        sexError.style.display = 'none';
+        document.getElementById('genderGroup').style.border = 'none';
+    }
     
     // Email validation
     const email = document.getElementById('email');
@@ -326,6 +358,35 @@ if (!sexSelected) {
         }
     });
     
+    // Age validation (must be at least 18 years old)
+    const ageInput = document.getElementById('age');
+    const ageError = document.getElementById('ageError');
+    if (ageInput && ageInput.value) {
+        const birthDate = new Date(ageInput.value);
+        const today = new Date();
+        
+        // Calculate age
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDiff = today.getMonth() - birthDate.getMonth();
+        
+        // Adjust age if birthday hasn't occurred this year
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        
+        if (age < 18) {
+            if (ageError) {
+                ageError.textContent = 'You must be at least 18 years old to register';
+                ageError.style.display = 'block';
+            }
+            ageInput.style.borderColor = 'red';
+            isValid = false;
+        } else {
+            if (ageError) ageError.style.display = 'none';
+            ageInput.style.borderColor = '#ddd';
+        }
+    }
+    
     // File upload validation
     ['qualification', 'aadhaarFront', 'aadhaarBack'].forEach(id => {
         const fileInput = document.getElementById(id);
@@ -333,18 +394,94 @@ if (!sexSelected) {
         const uploadDiv = document.getElementById(id + 'Upload');
         
         if (fileInput && error && uploadDiv) {
-            if (fileInput.files.length === 0) {
+            // Check if file is selected using our helper function
+            if (!isFileSelected(id)) {
                 error.style.display = 'block';
                 error.textContent = 'This file is required';
                 uploadDiv.style.borderColor = 'red';
                 isValid = false;
             } else {
+                // File is selected, clear any error
+                error.style.display = 'none';
                 uploadDiv.style.borderColor = '#ddd';
             }
         }
     });
     
     return isValid;
+}
+
+// Modified handleFormSubmission function
+function handleFormSubmission(e) {
+    e.preventDefault();
+    
+    if (!validateForm()) {
+        return;
+    }
+    
+    const form = e.target;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+    
+    try {
+        const formData = new FormData(form);
+        
+        // Make sure the file inputs are included in the FormData
+        const fileInputs = ['qualification', 'aadhaarFront', 'aadhaarBack'];
+        fileInputs.forEach(id => {
+            const fileInput = document.getElementById(id);
+            
+            if (fileInput && fileInput.files.length > 0) {
+                formData.set(id, fileInput.files[0]);
+                showUploadProgress(id);
+            }
+        });
+        
+        const xhr = new XMLHttpRequest();
+        
+        xhr.upload.onprogress = function(e) {
+            if (e.lengthComputable) {
+                const percent = Math.round((e.loaded / e.total) * 100);
+                updateAllProgressBars(percent);
+            }
+        };
+        
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+                
+                if (xhr.status === 200) {
+                    try {
+                        const response = JSON.parse(xhr.responseText);
+                        if (response.success) {
+                            alert("Submission successful!");
+                            form.reset();
+                            resetAllUploadStatuses();
+                            closePopup(); // Close popup after successful submission
+                        } else {
+                            alert("Error: " + response.message);
+                        }
+                    } catch (e) {
+                        alert("Submission received but response was not valid. Please check your form status.");
+                    }
+                } else {
+                    alert("Submission failed. Please try again.");
+                }
+            }
+        };
+        
+        xhr.open("POST", "https://api.omdayalhometuition.com/api/tutors/submit");
+        xhr.send(formData);
+        
+    } catch (error) {
+        console.error("Error:", error);
+        alert("An error occurred. Please try again.");
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+    }
 }
 
 /**

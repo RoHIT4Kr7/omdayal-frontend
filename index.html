@@ -209,11 +209,11 @@
       <!-- Close button -->
       <span class="popup-close" id="popupClose">&times;</span>
       
-      <div class="form-container ">
+<div class="form-container ">
+ 
   <h1>Register For Free & Grow Your Teaching Career</h1>
   <p class="rem">"Join Our Network of Expert Tutors and Make a Difference in Students' Lives."</p>
- 
-  <form id="tutorForm">
+  <form id="tutorForm" novalidate>
       <div class="form-group">
           <label for="email" class="required">Email</label>
           <input type="email" id="email" name="email" required>
@@ -278,27 +278,27 @@
       
       <div class="form-group">
           <label for="age" class="required">Date of Birth</label>
-          <input type="date" id="age" name="age" required>
-          <div class="error" id="ageError">Please enter your date of birth</div>
+          <input type="date" id="age" name="age" required max="">
+          <div class="error" id="ageError">Please enter your date of birth (must be at least 18 years old)</div>
       </div>
       
   <!-- Update each file upload section like this -->
   <div class="form-group">
-      <label for="qualification" class="required">Highest Qualification Document 💾</label>
-      <div class="file-upload" id="qualificationUpload">
-          <input type="file" id="qualification" name="qualification" 
-                 accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required style="display: none;">
-          <div class="file-upload-content">
-              <span class="click-to-upload">Click to upload qualification</span>
-              <div class="file-name" id="qualificationFileName">No file chosen</div>
-              <span class="upload-success">✓</span>
-          </div>
-          <div class="progress-container">
-              <div class="progress-bar" id="qualificationProgress"></div>
-          </div>
-      </div>
-      <div class="error" id="qualificationError">Please upload your qualification document</div>
-  </div>
+    <label for="qualification" class="required">Highest Qualification Document 💾</label>
+    <div class="file-upload" id="qualificationUpload">
+        <input type="file" id="qualification" name="qualification" 
+               accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" style="display: none;">
+        <div class="file-upload-content">
+            <span class="click-to-upload">Click to upload qualification</span>
+            <div class="file-name" id="qualificationFileName">No file chosen</div>
+            <span class="upload-success">✓</span>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar" id="qualificationProgress"></div>
+        </div>
+    </div>
+    <div class="error" id="qualificationError">Please upload your qualification document</div>
+</div>
       
       <div class="form-group">
           <label for="tutorType" class="required">Tutor Type</label>
@@ -350,44 +350,45 @@
       </div>
       
       <div class="form-group">
-          <label for="aadhaarFront" class="required">Upload AADHAAR Front Side 💾</label>
-          <div class="file-upload" id="aadhaarFrontUpload">
-              <input type="file" id="aadhaarFront" name="aadhaarFront" 
-                     accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required style="display: none;">
-              <div class="file-upload-content">
-                  <span class="click-to-upload">Click to upload file</span>
-                  <div class="file-name" id="aadhaarFrontFileName">No file chosen</div>
-                  <span class="upload-success">✓</span>
-              </div>
-              <div class="progress-container">
-                  <div class="progress-bar" id="aadhaarFrontProgress"></div>
-              </div>
-          </div>
-          <div class="error" id="aadhaarFrontError">File must be PDF, DOC, or image and less than 1MB</div>
-      </div>
-      
-      <!-- Example for Aadhaar Back Side -->
-      <div class="form-group">
-          <label for="aadhaarBack" class="required">Upload AADHAAR Back Side 💾</label>
-          <div class="file-upload" id="aadhaarBackUpload">
-              <input type="file" id="aadhaarBack" name="aadhaarBack" 
-                     accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required style="display: none;">
-              <div class="file-upload-content">
-                  <span class="click-to-upload">Click to upload file</span>
-                  <div class="file-name" id="aadhaarBackFileName">No file chosen</div>
-                  <span class="upload-success">✓</span>
-              </div>
-              <div class="progress-container">
-                  <div class="progress-bar" id="aadhaarBackProgress"></div>
-              </div>
-          </div>
-          <div class="error" id="aadhaarBackError">File must be PDF, DOC, or image and less than 1MB</div>
-      </div>
+        <label for="aadhaarFront" class="required">Upload AADHAAR Front Side 💾</label>
+        <div class="file-upload" id="aadhaarFrontUpload">
+            <input type="file" id="aadhaarFront" name="aadhaarFront" 
+                   accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" style="display: none;">
+            <div class="file-upload-content">
+                <span class="click-to-upload">Click to upload file</span>
+                <div class="file-name" id="aadhaarFrontFileName">No file chosen</div>
+                <span class="upload-success">✓</span>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="aadhaarFrontProgress"></div>
+            </div>
+        </div>
+        <div class="error" id="aadhaarFrontError">File must be PDF, DOC, or image and less than 1MB</div>
+    </div>
+    
+    <!-- Example for Aadhaar Back Side -->
+    <div class="form-group">
+        <label for="aadhaarBack" class="required">Upload AADHAAR Back Side 💾</label>
+        <div class="file-upload" id="aadhaarBackUpload">
+            <input type="file" id="aadhaarBack" name="aadhaarBack" 
+                   accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" style="display: none;">
+            <div class="file-upload-content">
+                <span class="click-to-upload">Click to upload file</span>
+                <div class="file-name" id="aadhaarBackFileName">No file chosen</div>
+                <span class="upload-success">✓</span>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="aadhaarBackProgress"></div>
+            </div>
+        </div>
+        <div class="error" id="aadhaarBackError">File must be PDF, DOC, or image and less than 1MB</div>
+    </div>
       <button type="submit">Submit Application</button>
   </form>
 </div>
 </div>
 </div>
+
 
 <script src="assets/js/tutorform.js"></script>
     <main>
