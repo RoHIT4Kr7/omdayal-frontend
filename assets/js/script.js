@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
     errorDiv.style.display = 'none';
 
     try {
-      const response = await fetch("https://omdayalhometuition.com/api/students/submit", {
+      const response = await fetch("https://api.omdayalhometuition.com/api/students/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ firstName, lastName, contact, email, locality, query, studentClass, subjects }),
