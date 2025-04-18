@@ -958,6 +958,8 @@ ul li:hover .meg{
 
 
 /* founders section */
+
+
 .founder {
   padding: var(--py) var(--px);
 }
@@ -984,7 +986,7 @@ ul li:hover .meg{
 
 .founder-card {
   background: hsl(228, 33%, 97%);
-  padding: 50px;
+  padding: 20px;
   padding-bottom: 30px;
   border-radius: 8px;
   text-align: center;
@@ -1000,7 +1002,7 @@ ul li:hover .meg{
 .founder-img-box {
   position: relative;
   width: 100%;
-  height: 550px; /* Fixed height to standardize image size */
+  height: 450px; /* Fixed height to standardize image size */
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 30px;
@@ -1009,6 +1011,7 @@ ul li:hover .meg{
 .founder-img-box img {
   width: 100%;
   height: 100%;
+  max-height: 450px; /* Ensure images are not too tall */
   object-fit: cover;
   transition: var(--default-transition);
 }
@@ -1125,6 +1128,8 @@ ul li:hover .meg{
 .instructor-img-box img {
   width:  100%;
   height: 100%;
+  max-height: 270px;
+  min-height: 270px;
   object-fit: cover;
   transition: var(--default-transition);
 }
@@ -1252,7 +1257,10 @@ ul li:hover .meg{
   padding: 10px;
 }
 
-.client-img-box img { border-radius: 8px; }
+.client-img-box img { 
+  max-height: 60px;
+  border-radius: 8px; 
+}
 
 .client-detail .client-name {
   color: var(--oxford-blue);
@@ -1466,6 +1474,9 @@ ul li:hover .meg{
 }
 
 .contact .btn-primary { justify-self: center; }
+.contact-card .btn-text{
+  color: #f5f5f5;
+}
 
 
 
@@ -1567,19 +1578,43 @@ footer { background: var(--oxford-blue); }
   left: 0;
   width: 0%; /* Initially, the width is 0 */
   height: 3px; /* Thickness of the box */
-  background-color: #ff531a; /* Initial box color */
+  background: var(--red-orange-color-wheel); /* Color of the box */
+ /* Initial box color */
   transition: width 0.3s ease; /* Smooth animation for box width */
 }
+
+
+
+.list-item {
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 4px; /* optional, for smoother look */
+}
+
+.list-item:hover {
+  background-color: #ff531a; /* red-orange background */
+}
+
+.list-item a {
+  color: var(--lavender-blue);
+  display: inline-block;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.list-item:hover a {
+  color: #ffffff; /* text turns white when background is red */
+}
+
+
+
+
 
 .list-item:hover::before {
   width: 100%; /* On hover, expand the box to full width */
 }
 
-.list-item:hover a {
-  color: #ff531a; /* Change the text color when hovered */
-}
 
-/* end */
 
 .grid-item .list-item a {
   display: inline-block;
@@ -1591,7 +1626,8 @@ footer { background: var(--oxford-blue); }
 
 .grid-item .list-item a:hover {
   transform: translateX(10px);
-  color: var(--red-orange-color-wheel);
+  
+  transition: var(--default-transition);
 }
 
 .grid-item .wrapper {
