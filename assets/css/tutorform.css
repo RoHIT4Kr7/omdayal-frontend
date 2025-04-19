@@ -107,6 +107,12 @@
   align-items: center;
   gap: 0.5rem;
 }
+.radio-option label {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  color: #ccc; /* Match your form text color */
+}
 .radio-option input[type="radio"] {
   margin: 0;
 }
@@ -240,6 +246,10 @@ select {
     grid-template-columns: 1fr 1fr;
     gap: 0.75rem;
   }
+  .radio-option {
+    flex: 1; /* Allow equal spacing */
+    min-width: max-content; /* Prevent squeezing */
+  }
 }
 
 /* ========================================= */
@@ -346,6 +356,9 @@ select {
 
   .form-group .error {
     font-size: 12px;
+  }
+  .radio-group {
+    gap: 0.5rem;
   }
 }
 
