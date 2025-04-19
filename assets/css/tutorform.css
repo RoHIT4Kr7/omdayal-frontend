@@ -96,19 +96,23 @@
   margin-top: 5px;
   display: none;
 }
-
 .radio-group {
   display: flex;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 1rem;
+  margin-top: 0.5rem;
 }
 
 .radio-option {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 0.5rem;
 }
-
+.radio-option input[type="radio"] {
+  margin: 0;
+}
+.form-group:has(.radio-group) {
+  grid-column: 1 / -1;
+}
 .file-upload {
   border: 1px dashed #ddd;
   padding: 15px;
@@ -225,7 +229,8 @@ select {
   /* Make these form groups span both columns */
   .form-group:has(textarea),
   .form-group:has(.file-upload),
-  .form-group:has(button) {
+  .form-group:has(button),
+  .form-group:has(.radio-group) {
     grid-column: 1 / -1;
   }
 
