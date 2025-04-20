@@ -96,19 +96,29 @@
   margin-top: 5px;
   display: none;
 }
-
 .radio-group {
   display: flex;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 1rem;
+  margin-top: 0.5rem;
 }
 
 .radio-option {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 0.5rem;
 }
-
+.radio-option label {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  color: #ccc; /* Match your form text color */
+}
+.radio-option input[type="radio"] {
+  margin: 0;
+}
+.form-group:has(.radio-group) {
+  grid-column: 1 / -1;
+}
 .file-upload {
   border: 1px dashed #ddd;
   padding: 15px;
@@ -210,6 +220,9 @@ select {
 /* ========================================= */
 /* Two-column layout for desktop (768px and up) */
 /* ========================================= */
+/* ========================================= */
+/* Two-column layout for desktop (768px and up) */
+/* ========================================= */
 @media (min-width: 768px) {
   .form-container form {
     display: grid;
@@ -225,15 +238,52 @@ select {
   /* Make these form groups span both columns */
   .form-group:has(textarea),
   .form-group:has(.file-upload),
-  .form-group:has(button) {
+  .form-group:has(button),
+  .form-group:has(.radio-group) {
     grid-column: 1 / -1;
   }
 
   /* Radio group adjustments for two columns */
   .radio-group {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.75rem;
+    display: flex; /* Changed from grid to flex for better control */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    gap: 2rem; /* Increased space between options */
+    width: auto; /* Don't expand beyond content */
+    margin: 0 auto; /* Center the radio group */
+  }
+  
+  .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: auto; /* Don't force fixed width */
+    min-width: auto; /* Remove min-width constraint */
+  }
+  
+  .radio-option input[type="radio"] {
+    width: auto !important; /* Override full width */
+    margin: 0;
+  }
+  
+  .radio-option label {
+    margin: 0;
+    padding: 0;
+    width: auto !important; /* Override full width */
+    white-space: nowrap; /* Prevent text wrapping */
+  }
+}
+
+/* Special iPad/tablet styles */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Fix specifically for iPad-sized screens */
+  .radio-group {
+    width: auto;
+    justify-content: flex-start; /* Align to left instead of stretching */
+  }
+  
+  .form-group:has(.radio-group) {
+    width: 100%;
+    padding-right: 1rem; /* Ensure there's some space on the right */
   }
 }
 
@@ -342,6 +392,21 @@ select {
   .form-group .error {
     font-size: 12px;
   }
+  
+  .radio-group {
+    gap: 0.5rem;
+  }
+}
+
+/* Global fix for radio buttons across all device sizes */
+.radio-option input[type="radio"] {
+  width: auto !important; /* Force override the 100% width */
+}
+
+.radio-option label {
+  display: inline-block;
+  width: auto !important;
+  margin-bottom: 0;
 }
 
 /* Popup Styles */
