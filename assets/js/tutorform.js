@@ -597,3 +597,25 @@ function closePopup() {
     document.body.style.overflow = "auto";
   }
 }
+
+// Terms and conditions checkbox validation
+const termsRadios = document.getElementsByName("terms");
+const termsError = document.getElementById("termsError");
+let termsAccepted = false;
+
+for (let i = 0; i < termsRadios.length; i++) {
+  if (termsRadios[i].checked && termsRadios[i].value === "accept") {
+    termsAccepted = true;
+    break;
+  }
+}
+
+if (!termsAccepted) {
+  termsError.style.display = "block";
+  termsError.textContent = "You must accept the terms and conditions to proceed";
+  termsRadios[0].scrollIntoView({ behavior: "smooth", block: "center" });
+  isValid = false;
+} else {
+  termsError.style.display = "none";
+}
+

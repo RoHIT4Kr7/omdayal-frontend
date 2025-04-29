@@ -481,3 +481,36 @@ select {
 .form-group:nth-child(9) { animation-delay: 0.9s; }
 .form-group:nth-child(10) { animation-delay: 1.0s; }
 .form-group:nth-child(11) { animation-delay: 1.1s; }
+
+/* terms and condition */
+
+.terms-box {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 16px;
+  border: 1px solid #ccc;
+  background: linear-gradient(to bottom right, #fefefe, #f2f2f2);
+  border-radius: 8px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 8px;
+  transition: all 0.3s ease;
+}
+
+.terms-box p {
+  margin-bottom: 10px;
+}
+
+.terms-box ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+  margin-top: 12px;
+  font-size: 15px;
+}
+
