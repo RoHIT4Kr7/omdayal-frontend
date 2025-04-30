@@ -1,0 +1,4 @@
+<Files "favicon.svg">
+  Header set X-Robots-Tag "noindex"
+  Header set Content-Type "image/svg+xml"
+</Files>

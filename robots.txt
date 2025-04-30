@@ -1,8 +1,4 @@
 User-agent: *
 Allow: /
-Allow: /favicon.svg
-Allow: /favicon.ico
-Allow: /assets/images/favicon-*.png
-Allow: /assets/images/apple-touch-icon.png
 
 Sitemap: https://omdayalhometuition.com/sitemap.xml
