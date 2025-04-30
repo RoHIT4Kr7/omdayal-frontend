@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main Pages -->
   <url>
     <loc>https://omdayalhometuition.com/</loc>
     <lastmod>2025-04-23</lastmod>
@@ -14,5 +15,23 @@
     <loc>https://omdayalhometuition.com/#services</loc>
     <lastmod>2025-04-23</lastmod>
     <priority>0.8</priority>
+  </url>
+
+  <!-- Favicon Files -->
+  <url>
+    <loc>https://omdayalhometuition.com/favicon.svg</loc>
+    <lastmod>2025-04-23</lastmod>
+  </url>
+  <url>
+    <loc>https://omdayalhometuition.com/favicon.ico</loc>
+    <lastmod>2025-04-23</lastmod>
+  </url>
+  <url>
+    <loc>https://omdayalhometuition.com/assets/images/favicon-32x32.png</loc>
+    <lastmod>2025-04-23</lastmod>
+  </url>
+  <url>
+    <loc>https://omdayalhometuition.com/assets/images/favicon-16x16.png</loc>
+    <lastmod>2025-04-23</lastmod>
   </url>
 </urlset>
